@@ -1,6 +1,8 @@
 package com.tpe.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,10 +13,11 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @NotEmpty(message="Isim kismi bos olamaz")
     private String firstName;
+    @NotEmpty(message="Soy Isim kismi bos olamaz")
     private String lastName;
-
+    @NotNull(message="Lutfen puan bilgisini giriniz")
     private  Integer grade;
 
 

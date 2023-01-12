@@ -1,7 +1,6 @@
 package com.tpe;
 
 
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 // !!! web.xml yerine bu sınıfımızı kullanacağız
@@ -9,7 +8,9 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     @Override
     // Db ve Hibernate ayalarım için kullanacağım
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{
+                RootContextConfig.class
+        };
     }
 
     @Override
@@ -18,12 +19,11 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         return new Class[]{
                 WebMvcConfig.class
         };
-
     }
 
     @Override
     // hangi url hangi servlet ile ilişkilendirilecek
     protected String[] getServletMappings() {
-        return new String[]{"/"}; // gelen bütün request leri bu servlet tarafindan karsilanir
+        return new String[]{"/"}; /// gelen bütün request leri bu servlet tarafından karşılanacağını söylüyorum
     }
 }
